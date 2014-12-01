@@ -1,0 +1,32 @@
+---
+# handlers file for goozbach.mac_setup
+- name: unmount fuse filesystems
+  shell: mount -t osxfusefs
+
+- name: unload fuse filesystems
+  shell: kextunload -b com.github.osxfuse.filesystems.osxfusefs
+  sudo: True
+  ignore_errors: True
+
+- name: install osxfuse bundle
+  shell: /bin/cp -RfX /usr/local/opt/osxfuse/Library/Filesystems/osxfusefs.fs /Library/Filesystems/
+  sudo: True
+
+- name: chmod osxfuse bundle
+  shell: chmod +s /Library/Filesystems/osxfusefs.fs/Support/load_osxfusefs
+  sudo: True
+
+- name: stowdir make
+  shell: "cd ~/stowdir && make"
+
+- name: acme make
+  shell: "cd ~/Projects/acme-tools && PREFIX=${HOME}/stowdir make"
+
+- name: writing tools make
+  shell: "cd ~/Projects/writing-tools && PREFIX=${HOME}/stowdir make"
+
+- name: link bitlbee
+  shell: "ln -sfv /usr/local/opt/bitlbee/*.plist ~/Library/LaunchAgents"
+
+- name: launch bitlbee
+  shell: "launchctl load ~/Library/LaunchAgents/homebrew.mxcl.bitlbee.plist"

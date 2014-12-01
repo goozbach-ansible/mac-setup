@@ -1,0 +1,165 @@
+---
+# tasks file for goozbach.mac_setup
+- name: brew tap install
+  homebrew_tap: tap="{{ item }}" state=present
+  with_items: brew_tap_packages
+
+- name: newt install
+  homebrew: name=newt state=latest update_homebrew=yes install_options=with-python
+  tags:
+    - install
+    - homebrew
+
+- name: ensure ~/Library/Python/2.7/lib/python/site-packages directory
+  file: path=~/Library/Python/2.7/lib/python/site-packages state=directory
+  tags:
+    - install
+    - homebrew
+
+- name: ensure /Users/derekcarter/Library/Python/2.7/lib/python/site-packages/homebrew.pth exists
+  file: path=~/Library/Python/2.7/lib/python/site-packages/homebrew.pth state=touch mode=0644
+  tags:
+    - install
+    - homebrew
+
+- name: ensure ~/Library/Python/2.7/lib/python/site-packages/ paths are there
+  lineinfile: dest=~/Library/Python/2.7/lib/python/site-packages/homebrew.pth line='/usr/local/lib/python2.7/site-packages' 
+  tags:
+    - install
+
+- name: weechat install
+  homebrew: name=weechat state=latest update_homebrew=yes install_options=with-perl,with-python,with-ruby,with-lua
+  tags:
+    - install
+    - weechat
+    - homebrew
+
+- name: bitlbee install
+  homebrew: name=bitlbee state=latest update_homebrew=yes install_options=with-libotr
+  tags:
+    - install
+    - homebrew
+    - bitlbee
+  notify:
+    - link bitlbee
+    - launch bitlbee
+
+- name: gem install nokogiri
+  gem: name=nokogiri state=present version=1.6.4.1
+  tags:
+    - install
+    - gem
+
+- name: brew install
+  homebrew: name="{{ item }}" state=latest update_homebrew=yes
+  with_items: homebrew_install_packages
+  tags:
+    - install
+    - homebrew
+
+- name: install osxfuse
+  homebrew: name=osxfuse state=latest
+  tags:
+    - install
+    - homebrew
+  notify:
+    #- unmount fuse filesystems # make better TODO
+    - unload fuse filesystems
+    - install osxfuse bundle
+    - chmod osxfuse bundle
+
+- name: bootstrap brew cask
+  shell: brew install caskroom/cask/brew-cask creates=/usr/local/Cellar/brew-cask/0.39.3
+  sudo: true
+  tags:
+    - install
+    - homebrew
+    - bootstrap
+    - cask
+
+- name: brew cask install
+  homebrew_cask: name="{{ item }}" state=installed
+  with_items: brew_cask_packages
+  tags:
+    - install
+    - homebrew
+    - cask
+
+- name: personal brew cask install
+  homebrew_cask: name="{{ item }}" state=installed
+  with_items: personal_brew_cask_packages
+  tags:
+    - install
+    - homebrew
+    - cask
+  when: is_personal
+
+- name: install gpgtools
+  homebrew_cask: name="gpgtools" state=installed
+  sudo: yes
+  tags:
+    - install
+    - homebrew
+    - cask
+    - gpg
+
+- name: pip install
+  pip: name="{{item}}" state=latest
+  sudo: yes
+  with_items: pip_packages
+  tags:
+    - install
+    - pip
+
+- name: easy install
+  easy_install: name="{{item}}"
+  sudo: yes
+  with_items: easy_install_packages
+  tags:
+    - install
+    - easyinstall
+
+- name: "ensure /mnt directory"
+  file: dest=/mnt state=directory owner=root group=wheel mode=1777
+  sudo: True
+  tags:
+    - fuse
+
+- name: ensure some directories
+  file: dest={{ item }} state=directory 
+  with_items: ensure_directories
+  tags:
+    - directories
+    - homedir
+    - bootstrap
+
+- name: checkout stowdir
+  git: repo=https://github.com/goozbach/StowDir.git dest="~/stowdir"
+  tags:
+    - git
+    - directories
+    - stowdir
+    - stow
+  notify:
+    - stowdir make
+
+- name: checkout acme tools
+  git: repo=https://github.com/goozbach/acme-tools.git dest="~/Projects/acme-tools"
+  tags:
+    - git
+    - directories
+    - stow
+    - 'acme-tools'
+    - acme
+  notify:
+    - acme make
+
+- name: checkout writing tools
+  git: repo=https://github.com/goozbach/weasel-words.git dest="~/Projects/writing-tools"
+  tags:
+    - git
+    - directories
+    - stow
+    - 'writing-tools'
+  notify:
+    - writing tools make

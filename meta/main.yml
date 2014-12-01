@@ -1,0 +1,14 @@
+---
+galaxy_info:
+  author: Derek Carter
+  description: 
+  company: your company (optional)
+  license: MIT
+  min_ansible_version: 1.2
+  platforms:
+  - name: osx
+    versions:
+      - all
+  categories:
+    - system
+dependencies: []

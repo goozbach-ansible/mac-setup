@@ -1,0 +1,124 @@
+---
+# vars file for goozbach.mac_setup
+
+#
+# Brew Cask
+#
+personal_brew_cask_packages:
+  - handbrake
+  - handbrakebatch
+  - handbrakecli
+  - joinme
+  - minecraft
+  - sickbeard
+  - snes9x
+
+brew_cask_packages:
+  - atom
+  - chromium
+  - dia
+  - divvy
+  - diffmerge
+  - "dropbox-encore"
+  - dropbox
+  - evernote
+  - freemind
+  - gimp
+  # - gpgtools #discover if gpgtools is same as gpg suite
+  - inkscape
+  - iterm2
+  - keepassx
+  - 'komodo-edit'
+  #- 'lastpass-universal'
+  - owncloud
+  #- prey # TODO fix
+  - silverlight
+  - sketchup
+  - sketchupviewer
+  - sshfs
+  - xquartz
+  - virtualbox
+  - vagrant
+  - vagrant-manager
+
+#
+# Brew Install
+#
+homebrew_install_packages:
+  - links
+  - 'hg'
+  - 'fswatch'
+  #- 'git-flow'
+  - graphviz
+  - ghostscript
+  - bash
+  - readline
+  - byobu
+  - git
+  - binutils
+  - cvs
+  - imagemagick
+  - rename
+  - dos2unix
+  - tmux
+  - vim
+  - sox
+  - plan9port
+  - ack
+  - apg
+  - asciidoc
+  - aspell
+  - packer
+  - 'packer-completion'
+  - 'bash-completion'
+  - coreutils
+  - elinks
+  - wget
+  - gpg-agent
+  - keepassc
+  - mtr
+  - nmap
+  - 'peg-markdown'
+  - pyenv
+  - 'pyenv-virtualenv'
+  - 'pyenv-virtualenvwrapper'
+  - 'rdiff-backup'
+  - ssh-copy-id
+  - stow
+  - tree
+  - z
+  - iniparser
+  # - qtkeychain # TODO broken
+  - pandoc
+  - qemu
+  #- 'homebrew/completions/vagrant-completion' #broken
+
+#
+# Brew TAP
+#
+brew_tap_packages:
+  - "owncloud/owncloud"
+  - "homebrew/completions"
+  - "homebrew/binary"
+
+#
+# Easy Install
+#
+easy_install_packages:
+  - six
+  - stormssh
+
+#
+# PIP
+# 
+pip_packages:
+  - Flask
+  - csvkit
+
+#
+# Ensure Directories
+#
+ensure_directories:
+  - "~/Projects"
+  - "~/stowdir"
+  - "~/tmp"
