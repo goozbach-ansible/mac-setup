@@ -45,4 +45,5 @@ MIT
 Author Information
 ------------------
 
-Derek Carter <derek@goozbach.com>
+Derek Carter <derek@goozbach.com>  
+Goozbach Infrastructure Solutions LLC http://goozbach.com
