@@ -36,6 +36,7 @@ brew_cask_packages:
   - sketchup
   - sketchupviewer
   - sshfs
+  - wireshark
   - xquartz
   - virtualbox
   - vagrant
@@ -49,6 +50,7 @@ homebrew_install_packages:
   - 'hg'
   - 'fswatch'
   #- 'git-flow'
+  - 'git-extras'
   - graphviz
   - ghostscript
   - bash
