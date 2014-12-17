@@ -15,6 +15,7 @@ personal_brew_cask_packages:
 
 brew_cask_packages:
   - atom
+  - boot2docker
   - chromium
   - dia
   - divvy
@@ -46,6 +47,8 @@ brew_cask_packages:
 # Brew Install
 #
 homebrew_install_packages:
+  - docker
+  - 'docker-completion'
   - links
   - 'hg'
   - 'fswatch'
