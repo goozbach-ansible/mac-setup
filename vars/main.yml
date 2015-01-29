@@ -15,7 +15,6 @@ personal_brew_cask_packages:
 
 brew_cask_packages:
   - atom
-  - boot2docker
   - chromium
   - dia
   - divvy
