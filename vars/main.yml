@@ -59,6 +59,7 @@ homebrew_install_packages:
   - bash
   - readline
   - byobu
+  - jq
   - git
   - binutils
   - cvs
