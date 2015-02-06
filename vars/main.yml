@@ -53,6 +53,7 @@ homebrew_install_packages:
   - 'fswatch'
   #- 'git-flow'
   - 'git-extras'
+  - fig
   - graphviz
   - ghostscript
   - cpanminus
