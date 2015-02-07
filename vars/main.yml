@@ -13,6 +13,8 @@ personal_brew_cask_packages:
   - sickbeard
   - snes9x
   - 'google-cloud-sdk'
+  - 'thunderbird'
+  - iterm2
 
 brew_cask_packages:
   - xquartz
