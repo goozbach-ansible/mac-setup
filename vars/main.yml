@@ -15,6 +15,7 @@ personal_brew_cask_packages:
   - 'google-cloud-sdk'
   - 'thunderbird'
   - iterm2
+  - skype
 
 brew_cask_packages:
   - xquartz
