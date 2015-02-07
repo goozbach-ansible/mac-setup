@@ -12,8 +12,10 @@ personal_brew_cask_packages:
   - minecraft
   - sickbeard
   - snes9x
+  - 'google-cloud-sdk'
 
 brew_cask_packages:
+  - xquartz
   - atom
   - boot2docker
   - chromium

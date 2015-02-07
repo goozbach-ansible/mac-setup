@@ -58,7 +58,7 @@
     - homebrew
 
 - name: install osxfuse
-  homebrew: name=osxfuse state=latest
+  homebrew_cask: name=osxfuse state=installed
   tags:
     - install
     - homebrew
