@@ -30,3 +30,9 @@
 
 - name: launch bitlbee
   shell: "launchctl load ~/Library/LaunchAgents/homebrew.mxcl.bitlbee.plist"
+
+- name: link docker
+  shell: "ln -sfv /usr/local/opt/boot2docker/*.plist ~/Library/LaunchAgents"
+
+- name: launch docker
+  shell: "launchctl load ~/Library/LaunchAgents/homebrew.mxcl.boot2docker.plist"

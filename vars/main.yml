@@ -17,7 +17,6 @@ personal_brew_cask_packages:
 brew_cask_packages:
   - xquartz
   - atom
-  - boot2docker
   - chromium
   - dia
   - divvy
@@ -56,11 +55,14 @@ homebrew_install_packages:
   - 'fswatch'
   #- 'git-flow'
   - 'git-extras'
+  - fig
   - graphviz
   - ghostscript
+  - cpanminus
   - bash
   - readline
   - byobu
+  - jq
   - git
   - binutils
   - cvs

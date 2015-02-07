@@ -34,6 +34,15 @@
     - weechat
     - homebrew
 
+- name: boot2docker install
+  homebrew: name=boot2docker state=latest update_homebrew=yes
+  tags:
+    - docker
+    - homebrew
+  notify:
+    - link docker
+    - launch docker
+
 - name: bitlbee install
   homebrew: name=bitlbee state=latest update_homebrew=yes install_options=with-libotr
   tags:
