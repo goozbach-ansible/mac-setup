@@ -12,8 +12,13 @@ personal_brew_cask_packages:
   - minecraft
   - sickbeard
   - snes9x
+  - 'google-cloud-sdk'
+  - 'thunderbird'
+  - iterm2
+  - skype
 
 brew_cask_packages:
+  - xquartz
   - atom
   - chromium
   - dia
