@@ -46,8 +46,8 @@ brew_cask_packages:
 # Brew Install
 #
 homebrew_install_packages:
+  - ranger
   - docker
-  - 'docker-completion'
   - links
   - 'hg'
   - 'fswatch'
@@ -81,7 +81,6 @@ homebrew_install_packages:
   - coreutils
   - elinks
   - wget
-  - gpg-agent
   - keepassc
   - mtr
   - nmap
