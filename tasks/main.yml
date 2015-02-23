@@ -79,7 +79,6 @@
 
 - name: bootstrap brew cask
   shell: brew install caskroom/cask/brew-cask creates=/usr/local/Cellar/brew-cask/0.39.3
-  sudo: true
   tags:
     - install
     - homebrew
