@@ -54,8 +54,19 @@ homebrew_install_packages:
   - ranger
   - docker
   - links
+  - rpm
+  - 'xml-coreutils'
   - pv
+  - w3m
+  - sdl_image
+  - pinentry-mac
+  - sdl
+  - openssl
+  - go-completion
+  - mutt
   - 'hg'
+  - mc
+  - gtk+
   - 'fswatch'
   #- 'git-flow'
   - 'git-extras'
@@ -68,10 +79,12 @@ homebrew_install_packages:
   - byobu
   - jq
   - git
+  - boot2docker
   - binutils
   - cvs
   - imagemagick
   - rename
+  - renameutils
   - dos2unix
   - tmux
   - vim
@@ -85,6 +98,7 @@ homebrew_install_packages:
   - 'packer-completion'
   - 'bash-completion'
   - coreutils
+  - boxes
   - elinks
   - wget
   - keepassc
@@ -100,6 +114,7 @@ homebrew_install_packages:
   - tree
   - z
   - iniparser
+  - todo-txt
   # - qtkeychain # TODO broken
   - pandoc
   - qemu

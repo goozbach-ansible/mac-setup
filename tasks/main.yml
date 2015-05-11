@@ -6,9 +6,7 @@
 
 - name: newt install
   homebrew: name=newt state=latest update_homebrew=yes install_options=with-python
-  tags:
-    - install
-    - homebrew
+  tags: [ install, homebrew ]
 
 - name: ensure ~/Library/Python/2.7/lib/python/site-packages directory
   file: path=~/Library/Python/2.7/lib/python/site-packages state=directory
